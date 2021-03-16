@@ -5,23 +5,24 @@
 {% block body %}
 
 <div class="example-wrapper">
-    <h2>{{ task.title }}</h2>
+    <h2>{{task.title}} ✅</h2>
     <p class="data-task">
-        {{ task.user.name }} {{ task.user.surname }} |
-         {{ task.createdAt|date('d/m/Y h:i') }} |
-         {% if task.priority == 'high' %}
-                        {{ 'Alta' }}
-                    {% endif %}
-                    {% if task.priority == 'medium' %}
-                        {{ 'Media' }}
-                    {% endif %}
-                    {% if task.priority == 'low' %}
-                        {{ 'Baja' }}
-                    {% endif %} |
-                    {{ task.hours }}h
+        {{task.user.name }} {{task.user.surname }} 
+         | {{task.createdAt|date('d/m/Y h:i') }} | 
+        {% if task.priority == 'high' %}
+              {{ 'Alta' }}
+        {% endif %}
+        {% if task.priority == 'medium' %}
+            {{ 'Media' }}
+        {% endif %}
+        {% if task.priority == 'low' %}
+            {{ 'Baja' }}
+        {% endif %} 
+         | {{task.hours}}h
     </p>
     <p>
-        {{ task.content }}
+        {{task.content}}
     </p>
+ 
 </div>
 {% endblock %}
