@@ -18,7 +18,7 @@ class RegisterType extends AbstractType{
             'label' => 'Apellidos'
         ))
         ->add('email', EmailType::class, array(
-            'label' => 'correo electrónico'
+            'label' => 'Correo electrónico'
         ))
         ->add('password', PasswordType::class, array(
             'label' => 'Contraseña'

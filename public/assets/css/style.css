@@ -84,7 +84,9 @@ label{
 
 input[type="text"],
 input[type="password"],
-input[type="email"]{
+input[type="email"],
+textarea,
+select{
     width: 70%;
     padding: 8px;
 }
@@ -126,4 +128,30 @@ table td{
 
 table td{
     background: #e9ffea;
+}
+
+.buttons a{
+    text-decoration: none;
+    border: 1px solid green;
+    padding: 10px;
+    color: white;
+    background: #00AA33;
+}
+
+.buttons{
+    width: 33%;
+}
+
+.buttons .btn-edit{
+    background: orange;
+    border-color: #f38b06;
+}
+
+.buttons .btn-delete{
+    background: red;
+    border-color: #b90808;
+}
+
+.data-task{
+    color:gray;
 }
