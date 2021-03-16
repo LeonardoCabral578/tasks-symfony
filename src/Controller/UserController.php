@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 use App\Entity\User;
 use App\form\RegisterType;
@@ -26,7 +27,7 @@ class UserController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 
             // Modificando el objeto para guardarlo
-            $user->setRole('role_user');
+            $user->setRole('ROLE_USER');
             $user->setCreatedAt(new \Datetime('now'));
 
             // Cifrar contraseña
@@ -44,5 +45,16 @@ class UserController extends AbstractController
         return $this->render('user/register.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    public function login(AuthenticationUtils $authenticationUtils){
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('user/login.html.twig', array(
+            'error' => $error,
+            'last_username' => $lastUsername
+        ));
     }
 }
