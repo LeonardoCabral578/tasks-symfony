@@ -29,7 +29,7 @@ class TaskType extends AbstractType{
             'label' => 'Horas presupuestadas'
         ))
         ->add('submit', SubmitType::class, array(
-            'label' => 'Crear tarea'
+            'label' => 'Guardar'
         ));
     }
 }
